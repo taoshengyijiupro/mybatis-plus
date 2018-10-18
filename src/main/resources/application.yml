@@ -1,0 +1,33 @@
+#app
+server:
+    port: 8888
+
+#spring
+spring:
+  devtools:
+    restart:
+      enabled: false
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/testdb?characterEncoding=utf8&useSSL=true&allowMultiQueries=true
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+
+
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*Mapper.xml
+  typeAliasesPackage: com.example.mybatisplus.entity
+  typeEnumsPackage: com.example.mybatisplus.entity.enums
+  global-config:
+    db-config:
+      id-type: id_worker
+      field-strategy: not_empty
+      column-underline: true
+      logic-delete-value: 0
+      logic-not-delete-value: 1
+      db-type: h2
+    refresh: true
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
